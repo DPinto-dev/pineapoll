@@ -14,11 +14,11 @@ DROP TABLE IF EXISTS poll_results CASCADE;
 CREATE TABLE "polls" (
     "id" SERIAL   NOT NULL,
     "name" VARCHAR(255)   NOT NULL,
-    "description" VARCHAR(255)   NOT NULL,
-    "code" VARCHAR(255)   NOT NULL,
-    "creation_date" DATE::now()   NOT NULL,
-    "is_active" BOOLEAN   NOT NULL,
-    "creator_id" INT   NOT NULL,
+    "description" VARCHAR(255),
+    "code" VARCHAR(36)   NOT NULL,
+    "creation_date" TIMESTAMP NOT NULL DEFAULT Now(),
+    "is_active" BOOLEAN NOT NULL DEFAULT true,
+    "creator_id" INT NOT NULL,
     CONSTRAINT "pk_polls" PRIMARY KEY (
         "id"
      )
