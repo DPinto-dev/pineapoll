@@ -46,7 +46,7 @@ CREATE TABLE "poll_results" (
     "id" SERIAL   NOT NULL,
     "poll_id" INT   NOT NULL,
     "poll_option_id" INT   NOT NULL,
-    "user_id" INT   NOT NULL,
+    "user_id" VARCHAR(36)   NOT NULL,
     "rank" INT   NOT NULL,
     CONSTRAINT "pk_poll_results" PRIMARY KEY (
         "id"

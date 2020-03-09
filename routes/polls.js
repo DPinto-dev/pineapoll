@@ -10,7 +10,7 @@ module.exports = db => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM polls;`)
       .then(data => {
-        const polls = data.rows[0];
+        const polls = data.rows;
         console.log(polls);
         const {
           id,

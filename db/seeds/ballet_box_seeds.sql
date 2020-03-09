@@ -2,15 +2,16 @@
 
 -- id, email
 INSERT INTO creators
-VALUES (default, 'lighthouse@gmail.com'),
-(default, 'bigcheddar69@gmail.com');
+VALUES (1, 'lighthouse@gmail.com'),
+(2, 'bigcheddar69@gmail.com'),
+(3, 'bigheadmofo@gmail.com');
 
 
 -- id, name, description, code, creation_date, is_active, creator_id
 INSERT INTO polls
-VALUES (default, 'Best sandwich?', 'Which is best?', '97q49d', default, default, '1'),
-(default, 'Where should we eat?', 'Which restaurant?', '9rq47y', default, default, '1'),
-(default, 'Where should we go on vacation?', 'hottest vacay spot', '9rggdy', default, default, '2');
+VALUES (1, 'Best sandwich?', 'Which is best?', '97q49d', default, default, '1'),
+(2, 'Where should we eat?', 'Which restaurant?', '9rq47y', default, default, '2'),
+(3, 'Where should we go on vacation?', 'hottest vacay spot', '9rggdy', default, default, '3');
 
 
 -- id, poll_id, name, serial_order
@@ -73,24 +74,24 @@ VALUES
 (default, 2, 5, 'p0a', 2),
 (default, 2, 6, 'p0a', 3),
 (default, 2, 7, 'p0a', 1),
-(default, 2, 8, 'p0a', 4)
+(default, 2, 8, 'p0a', 4),
 
-(default, 3, 5, 'ha7', 3),
-(default, 3, 6, 'ha7', 2),
-(default, 3, 7, 'ha7', 4),
-(default, 3, 8, 'ha7', 1),
+(default, 3, 9, 'ha7', 3),
+(default, 3, 10, 'ha7', 2),
+(default, 3, 11, 'ha7', 4),
+(default, 3, 12, 'ha7', 1),
 
-(default, 3, 5, 'a9s', 2),
-(default, 3, 6, 'a9s', 3),
-(default, 3, 7, 'a9s', 1),
-(default, 3, 8, 'a9s', 4),
+(default, 3, 9 , 'a9s', 2),
+(default, 3, 10, 'a9s', 3),
+(default, 3, 11, 'a9s', 1),
+(default, 3, 12, 'a9s', 4),
 
-(default, 3, 5, '99a', 3),
-(default, 3, 6, '99a', 2),
-(default, 3, 7, '99a', 1),
-(default, 3, 8, '99a', 4),
+(default, 3, 9 , '99a', 3),
+(default, 3, 10, '99a', 2),
+(default, 3, 11, '99a', 1),
+(default, 3, 12, '99a', 4),
 
-(default, 3, 5, 'la0', 2),
-(default, 3, 6, 'la0', 3),
-(default, 3, 7, 'la0', 1),
-(default, 3, 8, 'la0', 4);
+(default, 3, 9 , 'la0', 2),
+(default, 3, 10, 'la0', 3),
+(default, 3, 11, 'la0', 1),
+(default, 3, 12, 'la0', 4);
