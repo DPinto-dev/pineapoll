@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- /vote/id -->
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../styles/vote_screen.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form class='submission-form' action='/' method='POST'>
+    <h2 class='nickname-prompt'>Please provide a nickname:</h2>
+    <textarea class='nickname-entry'name="text" placeholder="What do your friends call you?"></textarea>
+    <div class='tweetContainer'>
+    </div>
+  <h1 class='poll-question'>Which sandwich is the best?</h1 class>
+  <div class=>
+    <ul id="items">
+      <li class="draggable">Meatball</li class>
+      <li class="draggable">Bahn-mi</li>
+      <li class="draggable">Cheesesteak</liclass="draggable">
+    </ul>
+  </div>
+  <footer>
+    <button class="btn waves-effect waves-light vote-submit" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+  </footer>
+  </form>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src= '../bin/app.js'></script>
+</html>

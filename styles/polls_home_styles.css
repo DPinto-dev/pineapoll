@@ -1,0 +1,11 @@
+.card.small {
+  height: 225px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.card .card-content .card-title {
+  display: block;
+  line-height: 32px;
+  margin: 15px;
+}
