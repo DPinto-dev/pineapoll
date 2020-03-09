@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Materialize Minified -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- App Stylesheet -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <!-- External JS -->
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
+    <!-- App JS -->
+    <script defer type="text/javascript" src="/scripts/app.js"></script>
+    <title>BalletBox - Add a new Poll</title>
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+
+    <main>
+      <section id="new-poll-form" class="container">
+        <div class="row">
+          <div class="row" id="Display-Email-Previously-Entered">
+            <div class="input-field col s5">
+              <label for="logged-email">Logged in as:</label>
+            </div>
+            <div class="input-field col s5">
+              <label for="email">lighthouselabs@gmail.com</label>
+            </div>
+          </div>
+          <div class="row below-email">
+            <form class="col s11" action="/new" method="POST">
+              <div class="row">
+                <div class="input-field col s11">
+                  <input id="poll-name" type="text" class="validate" />
+                  <label for="poll-name">What do want to ask?</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s11">
+                  <textarea
+                    id="textarea2"
+                    class="materialize-textarea"
+                    data-length="200"
+                  ></textarea>
+                  <label for="poll-description">Poll Description:</label>
+                </div>
+              </div>
+              <section id="poll-options">
+                <h5>Poll Options:</h5>
+                <article class="poll-option row">
+                  <div class="input-field col s10">
+                    <input type="text" class="validate" />
+                    <label for="poll-option">Hardcoded option #1</label>
+                  </div>
+                </article>
+                <article class="poll-option row">
+                  <div class="input-field col s10">
+                    <input type="text" class="validate" />
+                    <label for="poll-option">Hardcoded option #2</label>
+                  </div>
+                </article>
+                <article class="poll-option row">
+                  <div class="input-field col s10">
+                    <input type="text" class="validate" />
+                    <label for="poll-option">Hardcoded option #3</label>
+                  </div>
+                </article>
+                <article class="poll-option row">
+                  <div class="input-field col s10">
+                    <input type="text" class="validate" />
+                    <label for="poll-option">Hardcoded option #4</label>
+                  </div>
+                </article>
+              </section>
+              <div class="fixed-action-btn">
+                <a
+                  id="add-option-btn"
+                  class="btn-floating pulse btn-large waves-effect waves-light red"
+                >
+                  <i class="material-icons">+</i></a
+                >
+              </div>
+              <button
+                id="new-btn"
+                class="btn waves-effect waves-light"
+                type="submit"
+                name="action"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
