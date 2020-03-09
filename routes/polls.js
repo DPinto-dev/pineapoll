@@ -6,9 +6,10 @@
 const express = require("express");
 const router = express.Router();
 
-module.exports = db => {
+module.exports = pool => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM polls;`)
+    pool
+      .query(`SELECT * FROM polls;`)
       .then(data => {
         const polls = data.rows;
         console.log(polls);
@@ -28,6 +29,16 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
+
+  router.get("/creator", (req,res) => {
+      pool.query(`
+    SELECT * FROM polls
+    JOIN creators ON polls.creator_id = creators.id
+    WHERE creator_email = $1;`, ['lighthouse@gmail.com']) 
+        .then(result => res.send(result.rows[0] || null))
+        // .then(result => console.log(result))
+        .catch(err => console.log(err));
+    });
 
   return router;
 };
