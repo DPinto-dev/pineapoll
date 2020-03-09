@@ -4,6 +4,7 @@ li.draggable {
   border: solid black 2px;
   margin: 0.75em;
   background-color: cornsilk;
+  background-image: url('../docs/images/asfalt-dark.png');
 }
 
 ul {
