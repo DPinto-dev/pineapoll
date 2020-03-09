@@ -10,6 +10,8 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const morgan = require("morgan");
 
+//TODO: Get METHOD-OVERRIDE going
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/dbParams.js");
@@ -32,17 +34,19 @@ app.use(
     outputStyle: "expanded"
   })
 );
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 // const widgetsRoutes = require("./routes/widgets");
 const pollsRoutes = require("./routes/polls");
+//! const voteRoutes = require("./routes/vote");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/polls", pollsRoutes(db));
+//! app.use("/vote", voteRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
