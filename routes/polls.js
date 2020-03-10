@@ -23,7 +23,6 @@ module.exports = pool => {
       // .then(result => res.send(result.rows[0] || null))
       // .then(result => console.log(result))
       .then(result => {
-        const polls = result.rows[0];
         const {
           id,
           name,
@@ -32,7 +31,7 @@ module.exports = pool => {
           creation_date,
           is_active,
           creator_id
-        } = polls;
+        } = result.rows[0];
         const templateVars = {
           id,
           name,
@@ -42,7 +41,7 @@ module.exports = pool => {
           is_active,
           creator_id
         };
-        res.render("polls_show", templateVars);
+        res.render("polls_browse", templateVars);
       })
       .catch(err => console.log(err));
   });
@@ -59,10 +58,26 @@ module.exports = pool => {
    */
   router.post("/new", (req, res) => {
     // There will be an email on the database = creator_id in the query
-    const newPollId = generateRandomString();
-    pool.query(
-      `INSERT INTO polls (name, description, code, creator_id) VALUES `
-    );
+    const { pollName, pollDescription, pollOption1 } = req.body;
+    console.log(pollName, pollDescription, pollOption1);
+    const newPollCode = generateRandomString();
+
+    // Add a new poll
+    pool
+      .query(
+        `INSERT INTO polls (name, description, code, creator_id) VALUES ($1, $2, $3, $4) RETURNING *`,
+        [pollName, pollDescription, newPollCode, 10002]
+      )
+      .then(
+        pool.query(
+          `
+      SELECT * FROM polls WHERE polls.code = $1`,
+          [newPollCode]
+        )
+      )
+      .then(results => console.log("Return from Select", results.rows));
+
+    // Add options
   });
 
   /*
