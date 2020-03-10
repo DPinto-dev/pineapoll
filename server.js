@@ -40,13 +40,13 @@ app.use(express.static(__dirname + "/public"));
 // Note: Feel free to replace the example routes below with your own
 // const widgetsRoutes = require("./routes/widgets");
 const pollsRoutes = require("./routes/polls");
-//! const voteRoutes = require("./routes/vote");
+const voteRoutes = require("./routes/votes");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/polls", pollsRoutes(db));
-//! app.use("/vote", voteRoutes(db));
+app.use("/votes", voteRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -54,7 +54,7 @@ app.use("/polls", pollsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.sendFile('/vagrant/midterm/ballet_box/views/polls_home.html');
 });
 
 app.listen(PORT, () => {
