@@ -1,5 +1,6 @@
 //* IMPORTS -----------------------------------------------------------
-const { escapeUnsafeChars } = require("./helpers");
+
+// const { escapeUnsafeChars } = require("./helpers");
 
 //* FUNCTION DEFINITIONS ----------------------------------------------
 // Create a new poll option card
@@ -20,6 +21,7 @@ const createPollOption = count => {
 $(() => {
   // Handles clicks to add new poll options
   $("#add-option-btn").click(() => {
+    console.log("button clicked");
     const newPollName = $("input#poll-name");
     const pollOptions = $("section #poll-options");
 
@@ -49,6 +51,11 @@ $(() => {
     //3- Sanitizes all of the text
 
     //4 - INSERT query
+  });
+
+  // Handles the submit vote button
+  $("button#vote-btn").click(event => {
+    event.preventDefault();
   });
 
   // $.ajax({
