@@ -53,6 +53,11 @@ $(() => {
     //4 - INSERT query
   });
 
+  // Handles the submit vote button
+  $("button#vote-btn").click(event => {
+    event.preventDefault();
+  });
+
   // $.ajax({
   //   method: "GET",
   //   url: "/api/users"

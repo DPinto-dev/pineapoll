@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="/styles/polls_home_styles.css"/>
-  <script src="https://kit.fontawesome.com/5c356779b1.js" crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/styles/polls_home_styles.css"/>
+  <script src="https://kit.fontawesome.com/5c356779b1.js" crossorigin="anonymous"></script>
+  <!-- jQuery CDN -->
+  <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+  <!-- App JS -->
+  <script defer type="text/javascript" src="/scripts/app.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -36,7 +43,7 @@
           <input name='poll-code' id="poll-code" type="text" class="validate">
           <label for="poll-code">6 digit Poll code</label>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <button id="vote-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
           <i class="material-icons right">send</i>
         </button>
       </form>
