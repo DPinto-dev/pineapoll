@@ -3,7 +3,7 @@
  * within the route handler in polls.js (...)
  */
 const pool = require("../db/db-index");
-const { generateRandomString } = require("../public/scripts/helpers");
+const { generateRandomString, escapeUnsafeChars } = require("../public/scripts/helpers");
 /**
  * Get a single poll from the database given the creator's email.
  * @param {String} email The email of the user.

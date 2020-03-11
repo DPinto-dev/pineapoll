@@ -1,5 +1,5 @@
-//* IMPORTS ----------------------------------------------
-const escapeUnsafeChars = require("./escapeUnsafeChars");
+//* IMPORTS -----------------------------------------------------------
+const { escapeUnsafeChars } = require("./helpers");
 
 //* FUNCTION DEFINITIONS ----------------------------------------------
 // Create a new poll option card
