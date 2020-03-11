@@ -4,13 +4,14 @@
 
 
 <head>
-  <link rel="stylesheet" type="text/css" href="../styles/vote_screen.css"/>
+  <link rel="stylesheet" type="text/css" href="/styles/vote_screen.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,9 +24,9 @@
   <h1 class='poll-question'>Which sandwich is the best?</h1 class>
   <div class=>
     <ul id="items">
-      <li serial-order="1" class="draggable">Meatball</li class>
-      <li serial-order="2" class="draggable">Bahn-mi</li>
-      <li serial-order="3" class="draggable">Cheesesteak</liclass="draggable">
+      <% for(let i = 0; i < pollOptions.length; i++) { %>
+      <li serial-order=<%= (i + 1) %> class="draggable"><%= pollOptions[i]%></li>
+      <% }; %>
     </ul>
   </div>
   <footer>
@@ -37,5 +38,5 @@
 <button id="get-order-btn">Log the order</button>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src= '../bin/app.js'></script>
+<script src= '/scripts/draggable_handler.js'></script>
 </html>
