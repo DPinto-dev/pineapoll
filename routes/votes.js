@@ -2,11 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { generateRandomString } = require("../public/scripts/helpers");
 
-
 module.exports = pool => {
 
   router.post('/', (req, res) => {
-    const pollCode = req.body['poll-code'];
+    const pollCode = req.body['poll-code'].trim();
     console.log('this is the pollcode entered: ', pollCode);
     pool.query(`
       SELECT id
