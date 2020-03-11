@@ -26,80 +26,58 @@
   <body>
     <%- include('partials/_header') %>
 
-    <main>
-      <section id="new-poll-form" class="container">
-        <div class="row">
-          <div class="row" id="Display-Email-Previously-Entered">
-            <div class="input-field col s5">
-              <label for="logged-email">Logged in as:</label>
-            </div>
-            <div class="input-field col s5">
-              <label for="email">lighthouselabs@gmail.com</label>
+    <main class="container">
+      <div class="row" id="Display-Email-Previously-Entered">
+        <div class="input-field col s5">
+          <label for="logged-email">Logged in as:</label>
+        </div>
+        <div class="input-field col s5">
+          <label for="email">lighthouselabs@gmail.com</label>
+        </div>
+      </div>
+      <section id="new-poll-form">
+        <form class="col s11" action="/polls/new" method="POST">
+          <div class="row">
+            <div class="input-field col s11">
+              <input
+                name="pollName"
+                id="poll-name"
+                type="text"
+                class="validate"
+              />
+              <label for="poll-name">What do you want to ask?</label>
             </div>
           </div>
-          <div class="row below-email">
-            <form class="col s11" action="/new" method="POST">
-              <div class="row">
-                <div class="input-field col s11">
-                  <input id="poll-name" type="text" class="validate" />
-                  <label for="poll-name">What do want to ask?</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s11">
-                  <textarea
-                    id="textarea2"
-                    class="materialize-textarea"
-                    data-length="200"
-                  ></textarea>
-                  <label for="poll-description">Poll Description:</label>
-                </div>
-              </div>
-              <section id="poll-options">
-                <h5>Poll Options:</h5>
-                <article class="poll-option row">
-                  <div class="input-field col s10">
-                    <input type="text" class="validate" />
-                    <label for="poll-option">Hardcoded option #1</label>
-                  </div>
-                </article>
-                <article class="poll-option row">
-                  <div class="input-field col s10">
-                    <input type="text" class="validate" />
-                    <label for="poll-option">Hardcoded option #2</label>
-                  </div>
-                </article>
-                <article class="poll-option row">
-                  <div class="input-field col s10">
-                    <input type="text" class="validate" />
-                    <label for="poll-option">Hardcoded option #3</label>
-                  </div>
-                </article>
-                <article class="poll-option row">
-                  <div class="input-field col s10">
-                    <input type="text" class="validate" />
-                    <label for="poll-option">Hardcoded option #4</label>
-                  </div>
-                </article>
-              </section>
-              <div class="fixed-action-btn">
-                <a
-                  id="add-option-btn"
-                  class="btn-floating pulse btn-large waves-effect waves-light red"
-                >
-                  <i class="material-icons">+</i></a
-                >
-              </div>
-              <button
-                id="new-btn"
-                class="btn waves-effect waves-light"
-                type="submit"
-                name="action"
-              >
-                Submit
-              </button>
-            </form>
+          <div class="row">
+            <div class="input-field col s11">
+              <textarea
+                name="pollDescription"
+                id="textarea2"
+                class="materialize-textarea"
+                data-length="200"
+              ></textarea>
+              <label for="poll-description">Poll Description:</label>
+            </div>
           </div>
+          <section id="poll-options">
+            <h5>Poll Options:</h5>
+          </section>
+          <button
+            id="submit-btn"
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+          </button>
+        </form>
+        <div class="fixed-action-btn">
+          <a
+            id="add-option-btn"
+            class="btn-floating pulse btn-large waves-effect waves-light red"
+          >
+            <i class="material-icons">+</i></a
+          >
         </div>
       </section>
     </main>
