@@ -49,9 +49,9 @@ const addNewPoll = body => {
     // Add all the options to the queryString for insertion into DB
     for (let i = 0; i < options.length; i++) {
       if (i === options.length - 1) {
-        queryString += ` (${pollId}, '${options[i]}', ${1}) RETURNING *;`
+        queryString += ` (${pollId}, '${options[i]}', ${i + 1}) RETURNING *;`
       } else {
-        queryString += ` (${pollId}, '${options[i]}', ${1}), `
+        queryString += ` (${pollId}, '${options[i]}', ${i + 1}), `
       }
     }
     console.log("TCL: queryString", queryString)
