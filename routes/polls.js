@@ -6,22 +6,14 @@
 const express = require("express");
 const router = express.Router();
 const { generateRandomString } = require("../public/scripts/helpers");
+const { getPollByCreator, addNewPoll } = require("../db/database");
 
 module.exports = pool => {
   /*
    * Polls Index - Browse. List all polls for a particular email
    */
   router.get("/", (req, res) => {
-    pool
-      .query(
-        `
-    SELECT * FROM polls
-    JOIN creators ON polls.creator_id = creators.id
-    WHERE creator_email = $1;`,
-        ["lighthouse@gmail.com"]
-      )
-      // .then(result => res.send(result.rows[0] || null))
-      // .then(result => console.log(result))
+    getPollByCreator("lighthouse@gmail.com")
       .then(result => {
         const {
           id,
@@ -47,7 +39,7 @@ module.exports = pool => {
   });
 
   /*
-   * GET New Poll From
+   * GET New Poll Form
    */
   router.get("/new", (req, res) => {
     res.render("polls_new");
@@ -58,26 +50,9 @@ module.exports = pool => {
    */
   router.post("/new", (req, res) => {
     // There will be an email on the database = creator_id in the query
-    const { pollName, pollDescription, pollOption1 } = req.body;
-    console.log(pollName, pollDescription, pollOption1);
-    const newPollCode = generateRandomString();
-
-    // Add a new poll
-    pool
-      .query(
-        `INSERT INTO polls (name, description, code, creator_id) VALUES ($1, $2, $3, $4) RETURNING *`,
-        [pollName, pollDescription, newPollCode, 10002]
-      )
-      .then(
-        pool.query(
-          `
-      SELECT * FROM polls WHERE polls.code = $1`,
-          [newPollCode]
-        )
-      )
-      .then(results => console.log("Return from Select", results.rows));
-
-    // Add options
+    let poll = req.body;
+    addNewPoll(poll);
+    res.redirect("/polls/new");
   });
 
   /*

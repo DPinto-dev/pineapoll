@@ -6,7 +6,9 @@ let sortable = Sortable.create(el, {
 // ------------------------------------------------
 
 $("#get-order-btn").click(function() {
-  $("ul#items").each(function(el) {
-    console.log(el);
+  $("ul#items li").each(function() {
+    const results = [];
+    results.push($(this).attr("serial-order"));
+    console.log(results);
   });
 });
