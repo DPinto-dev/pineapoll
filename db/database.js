@@ -64,6 +64,10 @@ const addNewPoll = body => {
 exports.addNewPoll = addNewPoll;
 
 
+const postResults = body => {
+  
+}
+
 
 const getResultsByPollId = poll_id => {
   if (thisIsTheQueryWIP) {
@@ -72,14 +76,9 @@ const getResultsByPollId = poll_id => {
       LEFT JOIN poll_results ON poll_options.id = poll_option_id
       WHERE poll_options.poll_id = 10000
       GROUP BY name`;
-
-
   }
-
-
-
 }
-
+exports.getResultsByPollId = getResultsByPollId;
 
 // poll_options.id, poll_options.poll_id, poll_options.name, poll_options.serial_order
 
