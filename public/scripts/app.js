@@ -1,12 +1,7 @@
+//* IMPORTS ----------------------------------------------
+const escapeUnsafeChars = require("./escapeUnsafeChars");
+
 //* FUNCTION DEFINITIONS ----------------------------------------------
-
-// Escapes unsafe characters before adding text to poll option
-const escapeUnsafeChars = function(str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
-
 // Create a new poll option card
 const createPollOption = count => {
   const pollOption = `
