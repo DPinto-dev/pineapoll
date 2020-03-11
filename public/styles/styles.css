@@ -1,0 +1,43 @@
+body {
+  background-color: rgba(250, 139, 28, 0.6);
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+}
+
+section#new-poll-form {
+  position: relative;
+  margin-top: 5vh;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+div.action-btn a#add-option-btn {
+  background-color: #5aad04 !important;
+  position: fixed;
+  bottom: 10em;
+  right: 10em;
+}
+
+header div.navbar-fixed {
+  position: fixed;
+  bottom: 0;
+  background-color: #5aad04;
+}
+
+header div.navbar-fixed nav div.nav-wrapper {
+  padding: 0 20px;
+  background-color: #5aad04;
+}
+
+#nav-logo img {
+  position: fixed;
+  z-index: 99;
+  bottom: 10px;
+  left: 10px;
+  width: 80px;
+}
+
+/* header div.navbar-fixed i {
+  font-size: 40px;
+} */
