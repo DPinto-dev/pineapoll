@@ -1,0 +1,37 @@
+#vote-card, #create-poll-card {
+  height: 40vh;
+}
+
+.card-container {
+  margin-top: 2em;
+}
+
+div.my-card {
+  /* background-color: rgb(78, 252, 255); */
+  height: 225px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.card .card-content .card-title {
+  display: block;
+  line-height: 32px;
+  margin: 15px;
+}
+
+div.card-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.far .fa-paper-plane {
+  color: black;
+}
+
+.fas .fa-clipboard-list {
+  color: black;
+}
+
+
+/* credit <a href="https://www.freepik.com/free-photos-vectors/celebration">Celebration psd created by freepik - www.freepik.com</a>
+<a href="https://www.freepik.com/free-photos-vectors/black">Black photo created by freepik - www.freepik.com</a> */
