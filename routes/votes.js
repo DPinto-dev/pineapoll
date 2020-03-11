@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { generateRandomString } = require("../public/scripts/helpers");
+const escapeUnsafeChars = require("../public/scripts/escapeUn")
 
 module.exports = pool => {
 
