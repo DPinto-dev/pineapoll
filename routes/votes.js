@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { generateRandomString } = require("../public/scripts/helpers");
+const escapeUnsafeChars = require("../public/scripts/helpers")
 
 module.exports = pool => {
 
@@ -20,9 +21,15 @@ module.exports = pool => {
         FROM poll_options
         WHERE poll_id = $1
       `, [id])
-      .then(results => console.log('this should be the names of the options', results.rows))
+      .then(results => {
+        let resultsArray = [];
+        for (let i = 0; i < results.rows.length; i++) {
+          resultsArray.push(results.rows[i].name)
+        }
+        let templateVars =  { pollOptions: resultsArray }
+      res.render('vote_screen.ejs', templateVars);
+      })
     })
-    res.redirect('/');
   })
   return router;
 }
