@@ -54,7 +54,7 @@ app.use("/votes", voteRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.sendFile('/vagrant/midterm/ballet_box/views/polls_home.html');
+  res.render('polls_home');
 });
 
 app.listen(PORT, () => {

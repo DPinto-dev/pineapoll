@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/styles/polls_home_styles.css"/>
+  <script src="https://kit.fontawesome.com/5c356779b1.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">ballotBOX</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class='card-container'>
+  <div class="small card my-card" id='vote-card'>
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="/images/vote.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Cast Your Vote! <i class="far fa-paper-plane"></i>
+      </span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Enter Poll Key:<i class="material-icons right"></i></span>
+      <form class='submission-form' action='/votes' method='POST'>
+        <div class="input-field col s12">
+          <input name='poll-code' id="poll-code" type="text" class="validate">
+          <label for="poll-code">6 digit Poll code</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="small card my-card" id='create-poll-card'>
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="/images/poll.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Create a Poll! <i class="fas fa-clipboard-list"></i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">It's easy! For starters, enter an email: <i class="material-icons right"></i></span>
+      <form class='submission-form' action='/polls/new' method='POST'></form>
+        <div class="input-field col s12">
+          <input name='email' id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
