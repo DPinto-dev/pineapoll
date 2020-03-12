@@ -41,12 +41,15 @@ app.use(express.static(__dirname + "/public"));
 // const widgetsRoutes = require("./routes/widgets");
 const pollsRoutes = require("./routes/polls");
 const voteRoutes = require("./routes/votes");
+const apiRoutes = require("./routes/api");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/polls", pollsRoutes(db));
 app.use("/votes", voteRoutes(db));
+app.use("/api", apiRoutes(db));
+
 
 // Note: mount other resources here, using the same pattern above
 

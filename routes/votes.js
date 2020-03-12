@@ -34,6 +34,7 @@ module.exports = pool => {
   return router;
 }
 
-router.get("/results", (req, res) => {
-  res.render("results_graph");
+router.get("/results/:pollCode", (req, res) => {
+  const pollCode = req.params.pollCode
+  res.render("results_graph", { pollCode });
 });
