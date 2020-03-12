@@ -15,13 +15,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Pineappoll</title>
 </head>
 <body>
+  <div class='header-div'>
+    <header id=constant-header><img class='logo' src="/images/pineappoll_logo.png"></header>
+  </div>
   <form class='submission-form' action='/' method='POST'>
-    <h2 class='nickname-prompt'>Please Provide a Nickname:</h2>
+    <h5 class='nickname-prompt'>Please Provide a Nickname:</h5>
     <textarea class='nickname-entry'name="text" placeholder="What do your friends call you?"></textarea>
-  <h1 class='poll-question'>Which sandwich is the best?</h1 class>
+  <h4 class='poll-question'>Which sandwich is the best?</h4 class>
   <div class=>
     <ul id="items">
       <% for(let i = 0; i < pollOptions.length; i++) { %>

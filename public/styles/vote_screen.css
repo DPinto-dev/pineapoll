@@ -16,6 +16,14 @@ ul {
   list-style-type: none;
 }
 
+header#constant-header {
+  background-color: #5aad04;
+  background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+  height: 13vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
 footer button.vote-submit {
   background-color: #5aad04;
   position: fixed;
@@ -28,7 +36,7 @@ footer button.vote-submit {
   text-align: center;
 }
 
-h2.nickname-prompt {
+h5.nickname-prompt {
   font-size: 2em;
   text-align: center;
   border: solid;
