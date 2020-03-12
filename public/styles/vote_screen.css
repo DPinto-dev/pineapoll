@@ -1,3 +1,8 @@
+body {
+  background-color: rgba(235, 123, 12, 0.774);
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+}
+
 li.draggable {
   border-radius: .75em;
   padding: 1em;
@@ -12,6 +17,7 @@ ul {
 }
 
 footer button.vote-submit {
+  background-color: #5aad04;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -25,8 +31,14 @@ footer button.vote-submit {
 h2.nickname-prompt {
   font-size: 2em;
   text-align: center;
+  border: solid;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: .25em;
 }
 .nickname-entry {
+  color:black;
+  border-bottom: #5aad04 3px solid;
   resize: none;
   width: 80%;
   margin-left: 10%;

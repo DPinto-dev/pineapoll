@@ -45,6 +45,7 @@ module.exports = pool => {
     res.render("polls_new");
   });
 
+
   /*
    * POST New poll to Database
    */

@@ -34,3 +34,6 @@ module.exports = pool => {
   return router;
 }
 
+router.get("/results", (req, res) => {
+  res.render("results_graph");
+});

@@ -54,9 +54,9 @@ $(() => {
   });
 
   // Handles the submit vote button
-  $("button#vote-btn").click(event => {
-    event.preventDefault();
-  });
+  // $("button#vote-btn").click(event => {
+  //   event.preventDefault();
+  // });
 
   // $.ajax({
   //   method: "GET",

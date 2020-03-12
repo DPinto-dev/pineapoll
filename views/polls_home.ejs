@@ -17,20 +17,13 @@
   <title>Document</title>
 </head>
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">ballotBOX</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class='header-div'>
+    <header id=constant-header><img class='logo' src="/images/pineappoll_logo.png"></header>
+  </div>
   <div class='card-container'>
   <div class="small card my-card" id='vote-card'>
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="/images/vote.jpg">
+      <img class="activator" id='vote-pic' src="/images/vote.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Cast Your Vote! <i class="far fa-paper-plane"></i>
@@ -40,7 +33,7 @@
       <span class="card-title grey-text text-darken-4">Enter Poll Key:<i class="material-icons right"></i></span>
       <form class='submission-form' action='/votes' method='POST'>
         <div class="input-field col s12">
-          <input name='poll-code' id="poll-code" type="text" class="validate">
+          <input name='poll-code' id="poll-code" type="text" class="validate" required>
           <label for="poll-code">6 digit Poll code</label>
         </div>
         <button id="vote-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -51,16 +44,16 @@
   </div>
   <div class="small card my-card" id='create-poll-card'>
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="/images/poll.jpg">
+      <img class="activator" id='poll-pic' src="/images/poll.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Create a Poll! <i class="fas fa-clipboard-list"></i></span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">It's easy! For starters, enter an email: <i class="material-icons right"></i></span>
-      <form class='submission-form' action='/polls/new' method='POST'></form>
+      <form class='submission-form' action='/polls/new' method='POST'>
         <div class="input-field col s12">
-          <input name='email' id="email" type="email" class="validate">
+          <input name='email' id="email" type="email" class="validate" required>
           <label for="email">Email</label>
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit

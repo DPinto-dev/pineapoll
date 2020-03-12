@@ -1,7 +1,8 @@
 // Sortable Stuff ---------------------------------
 let el = document.getElementById("items");
 let sortable = Sortable.create(el, {
-  animation: 300
+  animation: 300,
+  dragoverBubble: true
 });
 // ------------------------------------------------
 

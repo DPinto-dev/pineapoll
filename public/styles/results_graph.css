@@ -1,0 +1,23 @@
+header#constant-header {
+  background-color: #5aad04;
+  background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+  height: 13vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+body {
+  background-color: rgba(235, 123, 12, 0.774);
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+}
+
+
+h2.results {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+div.container.graph {
+  background-color:  rgba(235, 123, 12, 0.774);
+  border-radius: .5em;
+}
