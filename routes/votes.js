@@ -6,7 +6,14 @@ const escapeUnsafeChars = require("../public/scripts/helpers")
 module.exports = pool => {
 
   router.post('/', (req, res) => {
-    const pollCode = req.body['poll-code'].trim();
+    const pollCode = req.body['poll-code'];
+    res.redirect(`/votes/${pollCode}`);
+  })
+
+  //populates the poll options
+  router.get('/:pollCode', (req, res) => {
+    console.log(req.params["pollCode"]);
+    const pollCode = req.params["pollCode"].trim();
     console.log('this is the pollcode entered: ', pollCode);
     pool.query(`
       SELECT id
