@@ -30,12 +30,13 @@
   <body>
     <%- include('partials/_header') %>
     <main class="container">
-      <h3>This is from polls_new.ejs</h3>
+      <h4>Polls created by lighthouse@gmail.com</h4>
 
-      <%= id %> <%= name %> <%= description %> <%= code %> <%= creation_date %>
-      <%= is_active %> <%= creator_id %>
-
-      <section id="poll-browse" class="polls-container"></section>
+      <section id="poll-browse" class="polls-container">
+        <% for (const poll of pollsArray) { %>
+        <div><%- poll %></div>
+        <% } %>
+      </section>
     </main>
   </body>
 </html>
