@@ -5,41 +5,36 @@
 // IMPORTS --------------------------------------------------
 const express = require("express");
 const router = express.Router();
-const { generateRandomString } = require("../public/scripts/helpers");
+const {
+  generateRandomString,
+  createPollCard
+} = require("../public/scripts/helpers");
 const { getPollByCreator, addNewPoll } = require("../db/database");
 
 module.exports = pool => {
   /*
    * Polls Index - Browse. List all polls for a particular email
    */
+
+  // Let's treat this route as an api? Maybe..
   router.get("/", (req, res) => {
-    getPollByCreator("lighthouse@gmail.com")
-      .then(result => {
-        const {
-          id,
-          name,
-          description,
-          code,
-          creation_date,
-          is_active,
-          creator_id
-        } = result.rows[0];
-        const templateVars = {
-          id,
-          name,
-          description,
-          code,
-          creation_date,
-          is_active,
-          creator_id
-        };
-        res.render("polls_browse", templateVars);
-      })
-      .catch(err => console.log(err));
+    router.get("/:email", (req, res) => {
+      const email = req.params.email;
+      getPollByCreator(email)
+        .then(results => {
+          pollsArray = [];
+          for (const poll of results.rows) {
+            pollsArray.push(createPollCard(poll));
+          }
+          const templateVars = { pollsArray };
+          res.render("polls_browse", templateVars);
+        })
+        .catch(err => console.log(err));
+    });
   });
 
   /**
-   * POST to /polls
+   * POST to /polls - from "Home"
    */
   router.post("/", (req, res) => {
     const ownerEmail = req.body.email;
