@@ -6,12 +6,12 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/styles/vote_screen.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -25,7 +25,7 @@
     <h5 class='nickname-prompt'>Please Provide a Nickname:</h5>
     <textarea class='nickname-entry'name="text" placeholder="What do your friends call you?"></textarea>
   <h4 class='poll-question'>Which sandwich is the best?</h4 class>
-  <div class=>
+  <div class='poll-options'>
     <ul id="items">
       <% for(let i = 0; i < pollOptions.length; i++) { %>
       <li serial-order=<%= (i + 1) %> class="draggable"><%= pollOptions[i]%></li>
