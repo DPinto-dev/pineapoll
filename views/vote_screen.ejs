@@ -21,14 +21,14 @@
   <div class='header-div'>
     <header id=constant-header><img class='logo' src="/images/pineappoll_logo.png"></header>
   </div>
-  <form class='submission-form' action='/' method='POST'>
+  <form class='submission-form' action='/votes/<%=pollCode%>' method='POST'>
     <h5 class='nickname-prompt'>Please Provide a Nickname:</h5>
-    <textarea class='nickname-entry'name="text" placeholder="What do your friends call you?"></textarea>
-  <h4 class='poll-question'>Which sandwich is the best?</h4 class>
+    <textarea class='nickname-entry' name="nickname" placeholder="What do your friends call you?"></textarea>
+  <h4 class='poll-question'><%=question%></h4 class>
   <div class='poll-options'>
     <ul id="items">
       <% for(let i = 0; i < pollOptions.length; i++) { %>
-      <li serial-order=<%= (i + 1) %> class="draggable"><%= pollOptions[i]%></li>
+        <li serial-order=<%= (i + 1) %> option-id='<%=optionIdArr[i]%>' class="draggable"><%= pollOptions[i]%></li>
       <% }; %>
     </ul>
   </div>
@@ -37,7 +37,7 @@
       <i class="material-icons right">send</i>
     </button>
   </footer>
-</form>
+  </form>
 <button id="get-order-btn">Log the order</button>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

@@ -2,7 +2,7 @@
  * All database queries will be exported as functions and called from
  * within the route handler in polls.js (...)
  */
-const pool = require("../db/db-index");
+const pool = require("./db-index");
 const { generateRandomString, escapeUnsafeChars } = require("../public/scripts/helpers");
 /**
  * Get a single poll from the database given the creator's email.
@@ -35,6 +35,7 @@ const addNewPoll = body => {
 
   //NTS: 'RETURNING *' will return the poll that was just inserted into the DB
   //! Currently we are hardcoding the creator_id for demo purposes
+  // 1st - We create a new poll:
   pool.query(
      `INSERT INTO polls (name, description, code, creator_id) VALUES ($1, $2, $3, $4) RETURNING *`,
      [pollName, pollDescription, newPollCode, 10002]
@@ -42,7 +43,7 @@ const addNewPoll = body => {
    .then(results => {
      const pollId = results.rows[0].id;
      
-    // PREPARED STATEMENT
+    // 2nd - Add options to the poll that was just created
     //TODO: serial order is not being brought correctly yet
     let queryString = `INSERT INTO poll_options (poll_id, name, serial_order) VALUES `;
 
@@ -63,23 +64,73 @@ const addNewPoll = body => {
 }
 exports.addNewPoll = addNewPoll;
 
+const getPollIdByCode = pollCode => {
+  return pool.query(`SELECT id FROM polls WHERE code = '${pollCode}'`)
+}
+exports.getPollIdByCode = getPollIdByCode;
 
-const postResults = body => {
+
+const getPollOptionId = (pollId, serialOrder) => {
+  pool.query(`SELECT  poll_options.id as optionid
+  FROM poll_options 
+  JOIN polls ON polls.id = poll_id
+  WHERE polls.id = $1 AND serial_order = $2`, [pollId, serialOrder])
+    .then(results => {
+      const pollOptionId = results.rows[0].optionid;
+      return pollOptionId;
+    })
+    return pollOptionId;
+}
+exports.getPollOptionId = getPollOptionId;
+
+/**
+ * Receives an object with pollId and optionsId and inserts the vote into the db 
+ * @param {Object} result 
+ */
+const addResultsToDb = result => {
+
+  const { pollId, serialOrderArr, optionIdArr } = result;
+  console.log(`optionIdArr - inside addResultsToDb ${optionIdArr} end of array`);
+  console.log("typeof optionIdArr", typeof optionIdArr);
+  console.log("optionIdArr.length", optionIdArr.length);
+
+   let queryString = `INSERT INTO poll_results (poll_id, poll_option_id, user_id, rank) VALUES `;
+
+
+   // Add all the options to the queryString for insertion into DB
+   for (let i = 0; i < optionIdArr.length; i++) {
+     if (i === optionIdArr.length - 1) {
+       queryString += ` (${pollId}, '${optionIdArr[i]}', 'Diogo', ${optionIdArr.length - i}) RETURNING *;`
+     } else {
+       queryString += ` (${pollId}, '${optionIdArr[i]}', 'Diogo', ${optionIdArr.length - i}), `
+     }
+   }
+   console.log("TCL: queryString", queryString)
+   
+   return pool.query(queryString)
+   .then(res => res.rows)
+   .catch(err => console.log("Error inside the pool.query from database.js", err))
+
+}
+exports.addResultsToDb = addResultsToDb;
   
-}
 
 
-const getResultsByPollId = poll_id => {
-  if (thisIsTheQueryWIP) {
-    let queryString = `
-      SELECT name, SUM(poll_results.rank) AS borda FROM poll_options
-      LEFT JOIN poll_results ON poll_options.id = poll_option_id
-      WHERE poll_options.poll_id = 10000
-      GROUP BY name`;
-  }
-}
-exports.getResultsByPollId = getResultsByPollId;
+
 
 // poll_options.id, poll_options.poll_id, poll_options.name, poll_options.serial_order
 
 // poll_results.id, poll_results.poll_id, poll_results.poll_option_id, poll_results.user_id, poll_results.rank
+
+
+// creators
+// id	creator_email
+
+// polls
+// id	name	description	code	creation_date	is_active	creator_id
+
+// poll_options
+// id	poll_id	name	serial_order
+
+// poll_results:
+// id	poll_id	poll_option_id	user_id	rank
