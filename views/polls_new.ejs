@@ -29,14 +29,13 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-
     <main class="container">
       <div class="row" id="Display-Email-Previously-Entered">
         <div class="input-field col s5">
           <label for="logged-email">Logged in as:</label>
         </div>
         <div class="input-field col s5">
-          <label for="email">lighthouselabs@gmail.com</label>
+          <label for="email"><%=ownerEmail%></label>
         </div>
       </div>
       <section id="new-poll-form" class="card">

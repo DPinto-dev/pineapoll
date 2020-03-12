@@ -38,11 +38,22 @@ module.exports = pool => {
       .catch(err => console.log(err));
   });
 
+  /**
+   * POST to /polls
+   */
+  router.post("/", (req, res) => {
+    const ownerEmail = req.body.email;
+    const templateVars = { ownerEmail };
+    res.render("polls_new", templateVars);
+  });
+
   /*
    * GET New Poll Form
    */
   router.get("/new", (req, res) => {
-    res.render("polls_new");
+    const ownerEmail = req.body.email;
+    const templateVars = { ownerEmail };
+    res.render("polls_new", templateVars);
   });
 
   /*
