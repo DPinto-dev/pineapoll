@@ -4,7 +4,6 @@ const { generateRandomString } = require("../public/scripts/helpers");
 const escapeUnsafeChars = require("../public/scripts/helpers")
 
 module.exports = pool => {
-
   router.post('/', (req, res) => {
     const pollCode = req.body['poll-code'].trim();
     console.log('this is the pollcode entered: ', pollCode);
