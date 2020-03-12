@@ -2,6 +2,7 @@
  *  This file aids importing these helper functions where needed
  */
 
-const generateRandomString = require("./generateRandomString");
-const escapeUnsafeChars = require("./escapeUnsafeChars");
-module.exports = { generateRandomString, escapeUnsafeChars };
+const generateRandomString = require("./helpers/generateRandomString");
+const escapeUnsafeChars = require("./helpers/escapeUnsafeChars");
+const createPollCard = require("./helpers/createPollCard");
+module.exports = { generateRandomString, escapeUnsafeChars, createPollCard };

@@ -50,7 +50,7 @@
       <span class="card-title grey-text text-darken-4">Enter Poll Key:<i class="material-icons right"></i></span>
       <form class='submission-form' action='/votes' method='POST'>
         <div class="input-field col s12">
-          <input name='poll-code' id="poll-code" type="text" class="validate" required>
+          <input name='poll-code' id="poll-code" type="text" class="validate" required/>
           <label for="poll-code">6 digit Poll code</label>
         </div>
         <button id="vote-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -68,13 +68,9 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">It's easy! For starters, enter an email: <i class="material-icons right"></i></span>
-<<<<<<< HEAD
       <form class='submission-form' action='/polls/new' method='POST'>
-=======
-      <form class='submission-form' action='/polls' method='POST'>
->>>>>>> 738bfe958ffc7040379168746011b5a30054b0d6
         <div class="input-field col s12">
-          <input name='email' id="email" type="email" class="validate" required>
+          <input name='email' id="email" type="email" class="validate" required/>
           <label for="email">Email</label>
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
