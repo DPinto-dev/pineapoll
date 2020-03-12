@@ -5,7 +5,9 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="/styles/vote_screen.css"/>
+  <link rel="stylesheet" type="text/css" href="/styles/header2.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
   <script
@@ -17,14 +19,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pineappoll</title>
 </head>
-<body>
-  <div class='header-div'>
-    <header id=constant-header><img class='logo' src="/images/pineappoll_logo.png"></header>
-  </div>
+<body class='vote-screen-body'>
+  <%- include('partials/_header2') %>
   <form class='submission-form' action='/' method='POST'>
-    <h5 class='nickname-prompt'>Please Provide a Nickname:</h5>
-    <textarea class='nickname-entry'name="text" placeholder="What do your friends call you?"></textarea>
-  <h4 class='poll-question'>Which sandwich is the best?</h4 class>
+    <textarea class='nickname-entry'name="text" placeholder="Please Provide a Nickname"></textarea>
+  <h4 class='poll-question'><%= question %></h4 class>
   <div class='poll-options'>
     <ul id="items">
       <% for(let i = 0; i < pollOptions.length; i++) { %>
@@ -32,13 +31,13 @@
       <% }; %>
     </ul>
   </div>
-  <footer>
+  <p class=rank-instructions>Drag and drop to rank the options!</p>
+  <div class='vote-submit-div'>
     <button class="btn waves-effect waves-light vote-submit" type="submit" name="action">Submit
       <i class="material-icons right">send</i>
     </button>
-  </footer>
+  </div>
 </form>
-<button id="get-order-btn">Log the order</button>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src= '/scripts/draggable_handler.js'></script>

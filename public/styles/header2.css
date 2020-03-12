@@ -1,0 +1,7 @@
+header#constant-header {
+  background-color: #5aad04;
+  background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+  height: 13vh;
+  display: flex;
+  justify-content: center;
+}

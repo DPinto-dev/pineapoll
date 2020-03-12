@@ -8,7 +8,6 @@ module.exports = pool => {
     const pollCode = req.body['poll-code'];
     res.redirect(`/votes/${pollCode}`);
   })
-
   //populates the poll options
   router.get('/:pollCode', (req, res) => {
     console.log(req.params["pollCode"]);
@@ -23,24 +22,25 @@ module.exports = pool => {
       const id = results.rows[0].id;
       console.log('this should be the id:', id)
       pool.query(`
-        SELECT name
-        FROM poll_options
-        WHERE poll_id = $1
+      SELECT polls.name AS question, poll_options.name AS options
+      FROM polls
+      JOIN poll_options ON polls.id = poll_options.poll_id
+      WHERE poll_id = $1
       `, [id])
       .then(results => {
+        const question = results.rows[0].question;
         let resultsArray = [];
         for (let i = 0; i < results.rows.length; i++) {
-          resultsArray.push(results.rows[i].name)
+          resultsArray.push(results.rows[i].options)
         }
-        let templateVars =  { pollOptions: resultsArray }
+        let templateVars =  { question, pollOptions: resultsArray }
       res.render('vote_screen.ejs', templateVars);
       })
     })
-  })
+  });
+  router.get("/results/:pollCode", (req, res) => {
+    const pollCode = req.params.pollCode
+    res.render("results_graph", { pollCode });
+  });
   return router;
 }
-
-router.get("/results/:pollCode", (req, res) => {
-  const pollCode = req.params.pollCode
-  res.render("results_graph", { pollCode });
-});

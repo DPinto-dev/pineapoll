@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/styles/header2.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -20,12 +22,10 @@
     ></script>
   <!-- App JS -->
   <script defer type="text/javascript" src="/scripts/app.js"></script>
-  <title>Document</title>
+  <title>PineapPoll</title>
 </head>
 <body>
-  <div class='header-div'>
-    <header id=constant-header><img class='logo' src="/images/pineappoll_logo.png"></header>
-  </div>
+  <%- include('partials/_header2') %>
   <!-- <%- include('partials/_header') %> -->
   <!-- <nav>
     <div class="nav-wrapper">
@@ -40,7 +40,7 @@
   <div class='card-container'>
   <div class="small card my-card" id='vote-card'>
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" id='vote-pic' src="/images/vote.jpg">
+      <img class="activator" id='poll-pic' src="/images/PineappleOutline.png">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Cast Your Vote! <i class="far fa-paper-plane"></i>
@@ -53,29 +53,33 @@
           <input name='poll-code' id="poll-code" type="text" class="validate" required/>
           <label for="poll-code">6 digit Poll code</label>
         </div>
-        <button id="vote-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
+        <div class='button-div'>
+          <button id="vote-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
       </form>
     </div>
   </div>
   <div class="small card my-card" id='create-poll-card'>
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" id='poll-pic' src="/images/poll.jpg">
+      <img class="activator" id='poll-pic' src="/images/PineappleOutline.png">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Create a Poll! <i class="fas fa-clipboard-list"></i></span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">It's easy! For starters, enter an email: <i class="material-icons right"></i></span>
-      <form class='submission-form' action='/polls/new' method='POST'>
+      <form class='submission-form' action='/polls' method='POST'>
         <div class="input-field col s12">
           <input name='email' id="email" type="email" class="validate" required/>
           <label for="email">Email</label>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
+        <div class='button-div'>
+          <button class="btn waves-effect waves-light" id='newpoll-button' type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
       </form>
     </div>
     </div>
