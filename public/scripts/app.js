@@ -70,6 +70,9 @@ $(() => {
     // `
   };
 
+  // Handles click on user-icon, redirects to Browse
+  // const
+
   // Handles the submit vote button
   // $("button#vote-btn").click(event => {
   //   event.preventDefault();

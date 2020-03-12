@@ -18,19 +18,21 @@ module.exports = pool => {
 
   // Let's treat this route as an api? Maybe..
   router.get("/", (req, res) => {
-    router.get("/:email", (req, res) => {
-      const email = req.params.email;
-      getPollByCreator(email)
-        .then(results => {
-          pollsArray = [];
-          for (const poll of results.rows) {
-            pollsArray.push(createPollCard(poll));
-          }
-          const templateVars = { pollsArray };
-          res.render("polls_browse", templateVars);
-        })
-        .catch(err => console.log(err));
-    });
+    res.send("This is /polls");
+  });
+
+  router.get("/:email", (req, res) => {
+    const email = req.params.email;
+    getPollByCreator(email)
+      .then(results => {
+        pollsArray = [];
+        for (const poll of results.rows) {
+          pollsArray.push(createPollCard(poll));
+        }
+        const templateVars = { pollsArray };
+        res.render("polls_browse", templateVars);
+      })
+      .catch(err => console.log(err));
   });
 
   /**
