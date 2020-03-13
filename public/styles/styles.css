@@ -9,6 +9,12 @@ label {
 
 div#new-option-button {
   position: fixed;
+  bottom: 30px;
+  right: 40px;
+}
+
+div.action-btn a#add-option-btn {
+  background-color: #5aad04 !important;
 }
 
 button#submit-btn {
@@ -18,17 +24,14 @@ button#submit-btn {
 section#new-poll-form {
   position: relative;
   margin-top: 5vh;
-  height: 80vh;
-  background-color: rgb(255, 228, 97, .7);
+  height: 100%;
+  background-color: rgb(255, 228, 97, 0.7);
   padding: 20px;
   text-align: center;
 }
 
-div.action-btn a#add-option-btn {
-  background-color: #5aad04 !important;
-  position: fixed;
-  bottom: 10em;
-  right: 10em;
+section#new-poll-form form {
+  width: 100%;
 }
 
 header div.navbar-fixed {
@@ -76,5 +79,14 @@ div.card-action {
   display: flex;
   justify-content: center;
 }
-.poll-card img {
+
+#owner-email {
+  background-color: rgb(255, 228, 97, 0.7);
+  text-align: center;
+  margin-top: 20px;
+  font-size: ;
+}
+
+#owner-email label {
+  font-size: 20px;
 }

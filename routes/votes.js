@@ -72,7 +72,7 @@ module.exports = pool => {
         subject: "Someone just voted on your pineapPoll!",
         text: `Good news! ${nickName} just voted on your pineapPoll. 
         Do you want to see your poll results?
-        http://localhost:8080/votes/results/${pollCode}
+        http://bit.ly/pineappoll/votes/results/${pollCode}
         Thanks for using pineapPoll.`
       };
       sendMailGun(email);

@@ -6,7 +6,7 @@ Project Description
 //* Practice architecting an app in terms of UI/UX, Routes/API and Database
 //* Manage a multi-developer project with git
 //* Simulate the working world where you do not always get to completely cherry pick your team, stack or product features
-//* Practice demoing an app to help prepare for the final project and employer interviews
+//! Practice demoing an app to help prepare for the final project and employer interviews
 
 //! Stack Requirements - Your projects must use:
 //* ES6 for server-side (NodeJS) code
@@ -15,23 +15,24 @@ Project Description
 //* RESTful routes
 //* One or more CSS or UI "framework"s:
 //* jQuery
-//* A CSS preprocessor such as SASS, Stylus, or PostCSS for styling -- or CSS Custom properties and no CSS preprocessor
+//- A CSS preprocessor such as SASS, Stylus, or PostCSS for styling -- or CSS Custom properties and no CSS preprocessor
 //* PostgreSQL and pg (with promises) for DBMS
 //* git for version control
 
 //! Optional Requirements
-//* SPA (Single-Page Application) Behaviour
-//* Hosting, such as heroku, netlify, github pages, AWS, or Azure
+//- SPA (Single-Page Application) Behaviour
+//- Hosting, such as heroku, netlify, github pages, AWS, or Azure
 
 
 //! Requirements:
 //* a user can create a poll with multiple choices
 
-//* each choice can have a title and optional description
+//- each choice can have a title and optional description
 
 //* the creator must enter an email
 
 //* when a poll is finished being created, the user is given two links: an administrative link (which lets them access the results) and a submission link (which the user sends to their friends)
+//TODO: SET ICON WITH RESULTS LINK
 
 //* the links are also sent to the creator via email (using mailgun)
 

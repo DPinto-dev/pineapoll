@@ -66,13 +66,13 @@ module.exports = pool => {
       const { pollName, pollDescription } = poll;
       const email = {
         from: "PineaPOLL <diogosp4m@gmail.com>",
-        to: "aidanemiddleton@gmail.com",
+        to: "diogosmp@gmail.com",
         subject: "Hello",
         text: `You just created a poll with pineapPoll. 
         POLL NAME: ${pollName},
         POLL DESCRIPTION: ${pollDescription}.
         Do you want to see your poll results?
-        http://localhost:8080/votes/results/${code}
+        http://bit.ly/pineappoll/votes/results/${code}
         Thanks for using pineapPoll.`
       };
       sendMailGun(email);
@@ -82,7 +82,7 @@ module.exports = pool => {
 
   router.get("/share/:pollCode", (req, res) => {
     const pollCode = req.params.pollCode;
-    res.render("share_poll.ejs", { pollCode });
+    res.render("poll_share.ejs", { pollCode });
   });
 
   /*

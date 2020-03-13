@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: "Patrick Hand", cursive;
+  background-color: rgba(235, 123, 12, 0.774);
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(255, 228, 97, 0.7);
+  margin-left: 12%;
+  margin-right: 12%;
+  border-radius: 0.5em;
+  padding: 0.2em;
+  font-size: 25px;
+}
+
+#message-body {
+  width: 90%;
+  background-color: rgb(255, 228, 97, 0.7);
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px 5px;
+}
+
+#message-body h3 {
+  margin-top: 0;
+}
+
+#message-body a {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#message-body button {
+  display: block;
+  margin: 10px auto;
+  font-size: 20px;
+  background-color: #5aad04;
+}
+
+#message-body input {
+  width: 80%;
+  height: 25px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+#message-body p {
+  margin: 7px auto;
+}
+
+#message-body div.send-mail {
+  margin: 0 auto;
+}
+
+.results-link i {
+  font-size: 42px;
+  color: #5aad04;
+}

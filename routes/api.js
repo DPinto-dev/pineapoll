@@ -55,11 +55,11 @@ module.exports = function(pool) {
   router.get("/share/:pollCode", (req, res) => {
     const pollCode = req.params.pollCode;
     const email = {
-      from: "PineaPOLL <aidanemiddleton@gmail.com>",
-      to: "diogosp4m@gmail.com",
+      from: "PineaPOLL <diogosp4m@gmail.com>",
+      to: "aidanemiddleton@gmail.com",
       subject: "You've been invited to take place in a poll",
       text: `Hello! You have been in invited to take part in a poll hosted by pineapPOLL. To vote, all you have to do is follow this link:
-      http://localhost:8080/votes/${pollCode}`
+      http://bit.ly/pineappoll/votes/${pollCode}`
     };
     sendMailGun(email);
     res.redirect(`/`);

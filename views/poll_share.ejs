@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- App Stylesheet -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/header2.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/poll_share.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Share Your Poll!</title>
+  </head>
+  <body>
+    <%- include('partials/_header2') %>
+    <h2>Thanks for choosing pineapPOLL!</h2>
+    <div id="message-body">
+      <div>
+        <h3>This is your pollcode: <%=pollCode%></h3>
+        <h3>
+          Your friends can vote by entering this code on our home page, or
+          following this link.
+        </h3>
+      </div>
+      <hr />
+      <div class="send-mail">
+        <p>Share the link with your friend</p>
+        <a href="/votes/<%=pollCode%>">
+          http://bit.ly/pineappoll/votes/<%=pollCode%>
+        </a>
+        <form action="/api/share/<%=pollCode%>" method="GET">
+          <input type="email" name="" id="" placeholder="E-mail" />
+          <button type="submit">Send email!</button>
+        </form>
+      </div>
+      <hr />
+      <div class="results-link">
+        <p>Access the results for this poll</p>
+        <a href="/votes/results/<%=pollCode%>">
+          <i class="material-icons">insert_chart</i>
+        </a>
+    </div>
+  </body>
+</html>

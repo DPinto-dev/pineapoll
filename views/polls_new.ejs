@@ -14,7 +14,7 @@
     />
     <!-- App Stylesheet -->
     <link rel="stylesheet" href="/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/header2.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/header2.css" />
     <!-- External JS -->
     <script
       defer
@@ -31,13 +31,9 @@
   <body>
     <%- include('partials/_header2') %>
     <main class="container">
-      <div class="row" id="Display-Email-Previously-Entered">
-        <div class="input-field col s5">
-          <label for="logged-email">Logged in as:</label>
-        </div>
-        <div class="input-field col s5">
-          <label for="email"><%=ownerEmail%></label>
-        </div>
+      <div class="row" id="owner-email">
+        <label for="logged-email">Logged in as:</label>
+        <label for="email"><%=ownerEmail%></label>
       </div>
       <section id="new-poll-form" class="card">
         <form class="col s11" action="/polls/new" method="POST">
@@ -75,7 +71,7 @@
             Submit
           </button>
         </form>
-        <div class="action-btn" id='new-option-button'>
+        <div class="action-btn" id="new-option-button">
           <a
             id="add-option-btn"
             class="btn-floating pulse btn-large waves-effect waves-light red"
