@@ -46,8 +46,9 @@ module.exports = pool => {
    */
   router.post('/:pollCode', (req, res) => {
     const pollCode = req.params["pollCode"];
+    const nickName = req.body.nickname;
     const optionIdArr = req.body["option-id"].split(',').map(Number); 
-    // const serialOrderArr = req.body["serial-order"].split`,`.map(x=>+x);
+
     console.log("When route is triggered optionIdArr", optionIdArr)
     console.log("typeof optionIdArr", typeof optionIdArr)
 
@@ -56,10 +57,9 @@ module.exports = pool => {
       const pollId = results.rows[0].id;
 
       // MAKE AN OBJECT TO CALL THE FUNCTION THAT'LL ADD RESULTS TO DB
-      const resultObj = { pollId, serialOrderArr, optionIdArr };
+      const resultObj = { pollId, optionIdArr, nickName };
 
       console.log("pollId", pollId)
-      console.log("serialOrderArr", serialOrderArr)
       console.log("optionIdArr", optionIdArr)
 
       addResultsToDb(resultObj);

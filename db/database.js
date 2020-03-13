@@ -98,7 +98,7 @@ exports.getPollOptionId = getPollOptionId;
  */
 const addResultsToDb = result => {
 
-  const { pollId, serialOrderArr, optionIdArr } = result;
+  const { pollId, optionIdArr, nickName } = result;
   console.log(`optionIdArr - inside addResultsToDb ${optionIdArr} end of array`);
   console.log("typeof optionIdArr", typeof optionIdArr);
   console.log("optionIdArr.length", optionIdArr.length);
@@ -109,9 +109,9 @@ const addResultsToDb = result => {
    // Add all the options to the queryString for insertion into DB
    for (let i = 0; i < optionIdArr.length; i++) {
      if (i === optionIdArr.length - 1) {
-       queryString += ` (${pollId}, '${optionIdArr[i]}', 'Diogo', ${optionIdArr.length - i}) RETURNING *;`
+       queryString += ` (${pollId}, '${optionIdArr[i]}', '${nickName}', ${optionIdArr.length - i}) RETURNING *;`
      } else {
-       queryString += ` (${pollId}, '${optionIdArr[i]}', 'Diogo', ${optionIdArr.length - i}), `
+       queryString += ` (${pollId}, '${optionIdArr[i]}', '${nickName}', ${optionIdArr.length - i}), `
      }
    }
    console.log("TCL: queryString", queryString)
