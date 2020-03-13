@@ -60,6 +60,10 @@ app.get("/", (req, res) => {
   res.render('polls_home');
 });
 
+app.get("/test/share", (req, res) => {
+  res.render('share_poll');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

@@ -4,6 +4,11 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
 }
 
+::-webkit-input-placeholder {
+  color: black;
+}
+
+
 li.draggable {
   font-size: large;
   font-weight: 700;
@@ -12,6 +17,8 @@ li.draggable {
   border: rgb(255, 228, 97, .7);
   margin: 0.75em;
   background-color:rgb(255, 228, 97, .7);
+  display: flex;
+  justify-content: center;
 }
 
 ul {
@@ -24,9 +31,14 @@ button.vote-submit {
 }
 
 p.rank-instructions {
-  font-size: x-large;
+    font-size: large;
     display: flex;
     justify-content: center;
+    background-color: rgb(255, 228, 97, .7);
+    margin-left: 11%;
+    margin-right: 11%;
+    border-radius: .3em;
+    margin-bottom: 1.75em;
 }
 
 div.vote-submit-div {
@@ -44,19 +56,31 @@ div.vote-submit-div {
   margin-right: 7%;
 }
 
+p.nickname-prompt {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3em;
+  margin-bottom: .2em;
+  margin-top: 2.5em;
+  background-color: rgb(255, 228, 97, .7);
+  margin-right: 20%;
+  margin-left: 20%;
+  border-radius: .3em;
+}
+
 .nickname-entry {
   text-align: center;
   font-family: 'Patrick Hand', cursive;
-  background-color: rgb(255, 228, 97, .7);
+  background-color: rgba(235, 123, 12, 0.774);
   font-size: x-large;
-  margin-top: 2em;
   border-radius: .5em;
   color:black;
-  border: rgba(235, 123, 12, 0.774) 3px solid;
+  border: rgba(255, 228, 97, .7) 3px solid;
   resize: none;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: .2em;
 }
 
 @media only screen and (min-width: 500px) {
@@ -64,3 +88,4 @@ div.vote-submit-div {
     margin: 2px;
   }
 }
+
