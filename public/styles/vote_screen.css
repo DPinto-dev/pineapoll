@@ -5,23 +5,13 @@ body {
 }
 
 li.draggable {
-<<<<<<< HEAD
   font-size: large;
   font-weight: 700;
   border-radius: .75em;
-=======
-  border-radius: 0.75em;
->>>>>>> 1495fc865889add71049a4fac87128e5c82a8bdc
   padding: 1em;
   border: rgb(255, 228, 97, .7);
   margin: 0.75em;
-<<<<<<< HEAD
   background-color:rgb(255, 228, 97, .7);
-  background-image: url('../docs/images/asfalt-dark.png');
-=======
-  background-color: cornsilk;
-  background-image: url("/images/asfalt-dark.png");
->>>>>>> 1495fc865889add71049a4fac87128e5c82a8bdc
 }
 
 ul {
