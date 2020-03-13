@@ -24,6 +24,13 @@ $(() => {
       return;
     }
     // Checking if the previous poll option is empty
+    let $childInput = $("section #poll-options").find("input");
+    for (let child of $childInput) {
+      if (!child.value) {
+        alert("Please fill your poll option, before adding a new one.");
+        return;
+      }
+    }
 
     // Gets num of current new Poll Options on the DOM to create numbered options
     const numOptions = pollOptions.children().length;

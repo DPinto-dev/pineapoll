@@ -50,18 +50,13 @@ app.use("/polls", pollsRoutes(db));
 app.use("/votes", voteRoutes(db));
 app.use("/api", apiRoutes(db));
 
-
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render('polls_home');
-});
-
-app.get("/test/share", (req, res) => {
-  res.render('share_poll');
+  res.render("polls_home");
 });
 
 app.listen(PORT, () => {

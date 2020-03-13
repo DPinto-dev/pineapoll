@@ -34,11 +34,8 @@ const addNewPoll = body => {
   if (body.options) {
     options = [...body.options];
   }
-
-  console.log("TCL: body", body)
   const newPollCode = generateRandomString();
 
-  //NTS: 'RETURNING *' will return the poll that was just inserted into the DB
   //! Currently we are hardcoding the creator_id for demo purposes
   // 1st - We create a new poll:
   return pool.query(
@@ -53,7 +50,7 @@ const addNewPoll = body => {
 
     // Add all the options to the queryString for insertion into DB
 
-    //! ADD VALIDATION TO IMPEDE CREATION OF POLL WITH EMPTY OPTIONS
+    //! ADD VALIDATION TO IMPEDE CREATION OF POLL WITH EMPTY OPTIONS - will be done on app.js
 
     const optionsStr = options.map((option, idx) => {
       return `(${id}, ${option}, ${idx + 1})`

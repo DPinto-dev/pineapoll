@@ -27,6 +27,7 @@ module.exports = pool => {
       WHERE poll_id = $1
       `, [id])
       .then(results => {
+        console.log(results.rows);
         const question = results.rows[0].question;
         const optionsArray = [];
         const optionIdArr = [];

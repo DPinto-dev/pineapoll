@@ -62,7 +62,7 @@ module.exports = pool => {
     let poll = req.body;
     addNewPoll(poll).then(code => {
       console.log(code);
-      res.redirect(`/polls/${code}`);
+      res.redirect(`/polls/share/${code}`);
     });
 
     // -> Get the poll code from the returning on the INSERT and redirect to the appropriate share page
