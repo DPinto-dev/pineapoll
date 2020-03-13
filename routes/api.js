@@ -6,6 +6,7 @@ const {
   createPollCard
 } = require("../public/scripts/helpers");
 const { getPollByCreator, addNewPoll } = require("../db/database");
+const sendMailGun = require("../public/scripts/mailgun-module");
 
 module.exports = function(pool) {
   router.get("/:pollCode", (req, res) => {
@@ -46,6 +47,22 @@ module.exports = function(pool) {
         res.render("polls_browse", templateVars);
       })
       .catch(err => console.log(err));
+  });
+
+  /**
+   * Send email route
+   */
+  router.get("/share/:pollCode", (req, res) => {
+    const pollCode = req.params.pollCode;
+    const email = {
+      from: "PineaPOLL <diogosp4m@gmail.com>",
+      to: "diogosp4m@gmail.com",
+      subject: "You've been invited to take place in a poll",
+      text: `Hello! You have been in invited to take part in a poll hosted by pineapPOLL. To vote, all you have to do is follow this link:
+      http://localhost:8080/votes/${pollCode}`
+    };
+    sendMailGun(email);
+    res.redirect(`/`);
   });
 
   return router;

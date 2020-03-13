@@ -49,11 +49,8 @@ const addNewPoll = body => {
     
 
     // Add all the options to the queryString for insertion into DB
-
-    //! ADD VALIDATION TO IMPEDE CREATION OF POLL WITH EMPTY OPTIONS - will be done on app.js
-
     const optionsStr = options.map((option, idx) => {
-      return `(${id}, ${option}, ${idx + 1})`
+      return `(${id}, '${option}', ${idx + 1})`
     }).join(',');
      
     const queryString = `INSERT INTO poll_options (poll_id, name, serial_order)
