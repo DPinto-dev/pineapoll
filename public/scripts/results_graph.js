@@ -40,7 +40,13 @@ function generateNColors(n) {
     'rgba(255, 159, 64, 1.0)'
   ];
 
-  const colors = [];
+  const colors =
+  [
+    'rgba(255, 99, 132, 1.0)',
+    'rgba(54, 162, 235, 1.0)',
+    'rgba(255, 201, 86, 1.0)',
+    'rgba(75, 192, 192, 1.0)'
+  ];
   while (colors.length < n) {
     colors.push(colorSet[Math.floor(Math.random() * colorSet.length)])
   }
