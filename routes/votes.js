@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { generateRandomString, escapeUnsafeChars } = require("../public/scripts/helpers");
 const { getPollIdByCode, getPollOptionId, addResultsToDb } = require('../db/database');
+const sendMailGun = require("../public/scripts/mailgun-module");
 
 module.exports = pool => {
   router.post('/', (req, res) => {
@@ -64,7 +65,19 @@ module.exports = pool => {
 
       addResultsToDb(resultObj);
 
-      res.redirect("/");
+      //Send email saying nickName voted
+      const email = {
+        from: "PineaPOLL <aidanemiddleton@gmail.com>",
+        to: "diogosp4m@gmail.com",
+        subject: "Someone just voted on your pineapPoll!",
+        text: `Good news! ${nickName} just voted on your pineapPoll. 
+        Do you want to see your poll results?
+        http://localhost:8080/votes/results/${pollCode}
+        Thanks for using pineapPoll.`
+      };
+      sendMailGun(email);
+
+      res.render("voted", {nickName});
   })
 })
 

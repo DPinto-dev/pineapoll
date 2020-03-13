@@ -17,24 +17,15 @@
   <body>
     <%- include('partials/_header2') %>
     <div>
-      <h2>Thanks for choosing pineapPOLL!</h2>
+      <h2><%=nickName%> thanks for voting with pineapPOLL!</h2>
     </div>
     <div>
-      <p>We just created this pollcode: <%=pollCode%></p>
-      <h3>Share this link with your friends so that they can vote:</h3>
+      <h3>
+        Do you want to vote for another poll or create your own pineapPOLL?
+      </h3>
       <h4>
-        <a href="/votes/<%=pollCode%>"
-          >http://thisCouldBeOurHerokuAppLink.com/votes/<%=pollCode%></a
-        >
+        <a href="/">GO HOME</a>
       </h4>
-    </div>
-
-    <div class="send-mail">
-      <h3>Do you want to send this link to your friend's email?</h3>
-      <form action="/api/share/<%=pollCode%>" method="GET">
-        <input type="email" name="" id="" />
-        <button type="submit">Send your email!</button>
-      </form>
     </div>
   </body>
 </html>

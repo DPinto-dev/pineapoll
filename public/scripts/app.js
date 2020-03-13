@@ -40,12 +40,17 @@ $(() => {
 
   // Handles the submit new poll action
   $("#submit-btn").click(event => {
+    let $childInput = $("section #poll-options").find("input");
+    for (let child of $childInput) {
+      if (!child.value) {
+        event.preventDefault();
+        alert("Please fill your poll option, before submitting your poll");
+        return;
+      }
+    }
+    // if any of the options is empty prevent default and
     const newPollName = $("input#poll-name");
     const newPollDescription = $("#textarea2");
-    // get the poll options
-
-    // Prevents page reload behaviour
-    // event.preventDefault();
 
     //2- Check if one of the options is empty
 

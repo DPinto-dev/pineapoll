@@ -78,8 +78,6 @@ module.exports = pool => {
       sendMailGun(email);
       res.redirect(`/polls/share/${code}`);
     });
-
-    // -> Get the poll code from the returning on the INSERT and redirect to the appropriate share page
   });
 
   router.get("/share/:pollCode", (req, res) => {
