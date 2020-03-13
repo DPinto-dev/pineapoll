@@ -10,6 +10,7 @@ const {
   createPollCard
 } = require("../public/scripts/helpers");
 const { getPollByCreator, addNewPoll } = require("../db/database");
+const sendMailGun = require("../public/scripts/mailgun-module");
 
 module.exports = pool => {
   /*
@@ -62,6 +63,19 @@ module.exports = pool => {
     let poll = req.body;
     addNewPoll(poll).then(code => {
       console.log(code);
+      const { pollName, pollDescription } = poll;
+      const email = {
+        from: "PineaPOLL <diogosp4m@gmail.com>",
+        to: "aidanemiddleton@gmail.com",
+        subject: "Hello",
+        text: `You just created a poll with pineapPoll. 
+        POLL NAME: ${pollName},
+        POLL DESCRIPTION: ${pollDescription}.
+        Do you want to see your poll results?
+        http://localhost:8080/votes/results/${code}
+        Thanks for using pineapPoll.`
+      };
+      sendMailGun(email);
       res.redirect(`/polls/share/${code}`);
     });
 

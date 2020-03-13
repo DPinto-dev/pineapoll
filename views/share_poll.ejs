@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+ 
+    <!-- App Stylesheet -->
+    <link rel="stylesheet" href="/styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="/styles/header2.css" />
     <link rel="stylesheet" type="text/css" href="/styles/share_poll.css" />
     <link
@@ -25,6 +28,14 @@
           >http://thisCouldBeOurHerokuAppLink.com/votes/<%=pollCode%></a
         >
       </h4>
+    </div>
+
+    <div class="send-mail">
+      <h3>Do you want to send this link to your friend's email?</h3>
+      <form action="/api/share/<%=pollCode%> method="GET">
+        <input type="email" name="" id="" />
+        <button type="submit">Send your email!</button>
+      </form>
     </div>
   </body>
 </html>

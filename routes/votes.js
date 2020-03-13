@@ -65,23 +65,6 @@ module.exports = pool => {
       addResultsToDb(resultObj);
 
       res.redirect("/");
-
-        // for (const option of serialOrderArr) {
-        //   getPollOptionId(pollId, serialOrder)
-
-        // }
-        // .then
-        // console.log("pollId", pollId)
-        // const params = {pollId, body}
-        // res.send(params)
-        // return pollId
-    //   })
-    //   .catch(err => console.log("Error inside getPollIdByCode:", err));
-
-    // // res.send(`You voted at the poll: ${pollCode}`);
-
-    // // pool.query(``)
-
   })
 })
 
