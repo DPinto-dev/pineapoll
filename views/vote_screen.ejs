@@ -21,8 +21,9 @@
 </head>
 <body class='vote-screen-body'>
   <%- include('partials/_header2') %>
+  <p class='nickname-prompt'>Please Enter a Nickname!</p>
   <form class='submission-form' action='/votes/<%=pollCode%>' method='POST'>
-    <textarea class='nickname-entry'name="nickname" placeholder="Please Provide a Nickname"></textarea>
+    <textarea class='nickname-entry'name="nickname" placeholder=></textarea>
   <h4 class='poll-question'><%= question %></h4 class>
   <div class='poll-options'>
     <ul id="items">
