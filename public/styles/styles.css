@@ -3,11 +3,23 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
 }
 
+label {
+  color: black !important;
+}
+
+div#new-option-button {
+  position: fixed;
+}
+
+button#submit-btn {
+  background-color: #5aad04;
+}
+
 section#new-poll-form {
   position: relative;
   margin-top: 5vh;
   height: 80vh;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255, 228, 97, .7);
   padding: 20px;
   text-align: center;
 }

@@ -14,6 +14,7 @@
     />
     <!-- App Stylesheet -->
     <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/header2.css"/>
     <!-- External JS -->
     <script
       defer
@@ -28,7 +29,7 @@
     <title>BalletBox - Add a new Poll</title>
   </head>
   <body>
-    <%- include('partials/_header') %>
+    <%- include('partials/_header2') %>
     <main class="container">
       <div class="row" id="Display-Email-Previously-Entered">
         <div class="input-field col s5">
@@ -74,7 +75,7 @@
             Submit
           </button>
         </form>
-        <div class="action-btn">
+        <div class="action-btn" id='new-option-button'>
           <a
             id="add-option-btn"
             class="btn-floating pulse btn-large waves-effect waves-light red"
