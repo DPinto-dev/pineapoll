@@ -13,3 +13,10 @@ $("#get-order-btn").click(function() {
     console.log(results);
   });
 });
+
+$('.vote-submit:submit').click(e => {
+  const serialOrder = $.map( $('ul li'), li => $(li).attr("serial-order"));
+  const optionIds = $.map( $('ul li'), li => $(li).attr("option-id"));
+  $('form').append(`<input type="hidden" name="serial-order" value="${serialOrder.join(',')}"/>`);
+  $('form').append(`<input type="hidden" name="option-id" value="${optionIds.join(',')}"/>`);
+});

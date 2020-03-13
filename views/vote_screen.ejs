@@ -21,13 +21,13 @@
 </head>
 <body class='vote-screen-body'>
   <%- include('partials/_header2') %>
-  <form class='submission-form' action='/' method='POST'>
-    <textarea class='nickname-entry'name="text" placeholder="Please Provide a Nickname"></textarea>
+  <form class='submission-form' action='/votes/<%=pollCode%>' method='POST'>
+    <textarea class='nickname-entry'name="nickname" placeholder="Please Provide a Nickname"></textarea>
   <h4 class='poll-question'><%= question %></h4 class>
   <div class='poll-options'>
     <ul id="items">
       <% for(let i = 0; i < pollOptions.length; i++) { %>
-      <li serial-order=<%= (i + 1) %> class="draggable"><%= pollOptions[i]%></li>
+        <li serial-order=<%= (i + 1) %> option-id='<%=optionIdArr[i]%>' class="draggable"><%= pollOptions[i]%></li>
       <% }; %>
     </ul>
   </div>

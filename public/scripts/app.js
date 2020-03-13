@@ -1,8 +1,3 @@
-//* IMPORTS -----------------------------------------------------------
-
-// const { escapeUnsafeChars } = require("./helpers");
-const { getPollByCreator, addNewPoll } = require("../../db/database");
-
 //* FUNCTION DEFINITIONS ----------------------------------------------
 // Create a new poll option card
 const createPollOption = count => {
@@ -21,7 +16,6 @@ const createPollOption = count => {
 $(() => {
   // Handles clicks to add new poll options (in polls_new.ejs)
   $("#add-option-btn").click(() => {
-    console.log("button clicked");
     const newPollName = $("input#poll-name");
     const pollOptions = $("section #poll-options");
 
@@ -54,6 +48,7 @@ $(() => {
   });
 
   // Update all the poll cards (in polls_browse.ejs)
+  //TODO: Move this function to the backend
   const updatePollCards = (poll, email) => {
     getPollByCreator("lighthouse@gmail.com")
       .then(results => {
