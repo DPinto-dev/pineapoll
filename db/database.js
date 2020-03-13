@@ -29,37 +29,49 @@ exports.getPollByCreator = getPollByCreator;
  * @return {Promise<{}>} A promise sent back to the route handler
  */
 const addNewPoll = body => {
-  const { pollName, pollDescription, options } = body;
+  let options = [];
+  const { pollName, pollDescription } = body;
+  if (body.options) {
+    options = [...body.options];
+  }
+
   console.log("TCL: body", body)
   const newPollCode = generateRandomString();
 
   //NTS: 'RETURNING *' will return the poll that was just inserted into the DB
   //! Currently we are hardcoding the creator_id for demo purposes
   // 1st - We create a new poll:
-  pool.query(
+  return pool.query(
      `INSERT INTO polls (name, description, code, creator_id) VALUES ($1, $2, $3, $4) RETURNING *`,
      [pollName, pollDescription, newPollCode, 10002]
    )
    .then(results => {
-     const pollId = results.rows[0].id;
+    const { id, code } = results.rows[0];
      
     // 2nd - Add options to the poll that was just created
-    //TODO: serial order is not being brought correctly yet
-    let queryString = `INSERT INTO poll_options (poll_id, name, serial_order) VALUES `;
+    
 
     // Add all the options to the queryString for insertion into DB
-    for (let i = 0; i < options.length; i++) {
-      if (i === options.length - 1) {
-        queryString += ` (${pollId}, '${options[i]}', ${i + 1}) RETURNING *;`
-      } else {
-        queryString += ` (${pollId}, '${options[i]}', ${i + 1}), `
-      }
-    }
+
+    //! ADD VALIDATION TO IMPEDE CREATION OF POLL WITH EMPTY OPTIONS
+
+    const optionsStr = options.map((option, idx) => {
+      return `(${id}, ${option}, ${idx + 1})`
+    }).join(',');
+     
+    const queryString = `INSERT INTO poll_options (poll_id, name, serial_order)
+       VALUES ${optionsStr} RETURNING *;`
+
     console.log("TCL: queryString", queryString)
     
     return pool.query(queryString)
-    .then(res => res.rows)
-    .catch(err => console.log("Error inside the pool.query from database.js", err))
+      .then(() => {
+        return code;
+      })
+      .catch(err => {
+        console.log("Error inside the pool.query from database.js", err)
+        return code;
+      })
    });
 }
 exports.addNewPoll = addNewPoll;

@@ -46,8 +46,8 @@ module.exports = pool => {
    */ 
   router.post('/:pollCode', (req, res) => {
     const pollCode = req.params["pollCode"];
-    const optionIdArr = req.body["option-id"].split`,`.map(x=>+x);
-    const serialOrderArr = req.body["serial-order"].split`,`.map(x=>+x);
+    const optionIdArr = req.body["option-id"].split(',').map(Number); 
+    // const serialOrderArr = req.body["serial-order"].split`,`.map(x=>+x);
     console.log("When route is triggered optionIdArr", optionIdArr)
     console.log("typeof optionIdArr", typeof optionIdArr)
     

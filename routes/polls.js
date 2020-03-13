@@ -60,8 +60,17 @@ module.exports = pool => {
   router.post("/new", (req, res) => {
     // There will be an email on the database = creator_id in the query
     let poll = req.body;
-    addNewPoll(poll);
-    res.redirect("/polls/new");
+    addNewPoll(poll).then(code => {
+      console.log(code);
+      res.redirect(`/polls/${code}`);
+    });
+
+    // -> Get the poll code from the returning on the INSERT and redirect to the appropriate share page
+  });
+
+  router.get("/share/:pollCode", (req, res) => {
+    const pollCode = req.params.pollCode;
+    res.render("share_poll.ejs", { pollCode });
   });
 
   /*
