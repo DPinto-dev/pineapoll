@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/styles/header2.css"/>
+  <link rel="stylesheet" type="text/css" href="/styles/results_graph.css"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script
@@ -12,12 +15,11 @@
   <script type='text/javascript'>const pollCode = '<%= pollCode %>';</script>
   <script defer src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
   <script defer src='/scripts/results_graph.js'></script>
-  <link rel="stylesheet" type="text/css" href="/styles/results_graph.css"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
 <body>
-    <header id=constant-header><img class='logo' src="/images/pineappoll_logo.png"></header>
+  <%- include('partials/_header2') %>
     <h2 class='results'>Poll Results for Poll-Code: <%= pollCode %></h2>
   <div class='container graph'>
     <canvas id="myChart" width="400" height="400"></canvas>

@@ -8,7 +8,6 @@ module.exports = pool => {
     const pollCode = req.body['poll-code'];
     res.redirect(`/votes/${pollCode}`);
   })
-
   //populates the poll options
   router.get('/:pollCode', (req, res) => {
     const pollCode = req.params["pollCode"].trim();
@@ -43,27 +42,27 @@ module.exports = pool => {
 
   /*
    * Triggers when user votes
-   */ 
+   */
   router.post('/:pollCode', (req, res) => {
     const pollCode = req.params["pollCode"];
     const optionIdArr = req.body["option-id"].split(',').map(Number); 
     // const serialOrderArr = req.body["serial-order"].split`,`.map(x=>+x);
     console.log("When route is triggered optionIdArr", optionIdArr)
     console.log("typeof optionIdArr", typeof optionIdArr)
-    
+
     getPollIdByCode(pollCode)
     .then(results => {
       const pollId = results.rows[0].id;
 
       // MAKE AN OBJECT TO CALL THE FUNCTION THAT'LL ADD RESULTS TO DB
       const resultObj = { pollId, serialOrderArr, optionIdArr };
-      
+
       console.log("pollId", pollId)
       console.log("serialOrderArr", serialOrderArr)
       console.log("optionIdArr", optionIdArr)
-      
+
       addResultsToDb(resultObj);
-      
+
       res.redirect("/");
 
         // for (const option of serialOrderArr) {
@@ -77,9 +76,9 @@ module.exports = pool => {
         // return pollId
     //   })
     //   .catch(err => console.log("Error inside getPollIdByCode:", err));
-    
+
     // // res.send(`You voted at the poll: ${pollCode}`);
-    
+
     // // pool.query(``)
 
   })
@@ -91,4 +90,3 @@ module.exports = pool => {
   });
   return router;
 }
-
