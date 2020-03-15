@@ -59,7 +59,7 @@ module.exports = function(pool) {
       to: "aidanemiddleton@gmail.com",
       subject: "You've been invited to take place in a poll",
       text: `Hello! You have been in invited to take part in a poll hosted by pineapPOLL. To vote, all you have to do is follow this link:
-      http://bit.ly/pineappoll/votes/${pollCode}`
+      http://9adb6eef.ngrok.io/votes/${pollCode}`
     };
     sendMailGun(email);
     res.redirect(`/`);

@@ -72,7 +72,7 @@ module.exports = pool => {
         POLL NAME: ${pollName},
         POLL DESCRIPTION: ${pollDescription}.
         Do you want to see your poll results?
-        http://bit.ly/pineappoll/votes/results/${code}
+        http://9adb6eef.ngrok.io/votes/results/${code}
         Thanks for using pineapPoll.`
       };
       sendMailGun(email);
